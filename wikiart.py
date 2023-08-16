@@ -3,12 +3,20 @@ import hashlib
 
 from bs4 import BeautifulSoup
 
+from items import ImageItem
+
 
 class WikiArtSpider(scrapy.Spider):
     name = "wikiart"
     allowed_domains = ["wikiart.org"]
     start_urls = ["https://www.wikiart.org/en/artists-by-nation"]
     id = 0
+    custom_settings = {
+        "ITEM_PIPELINES": {
+            'scrapy.pipelines.images.ImagesPipeline': 1,
+        },
+        "IMAGES_STORE": "img",
+    }
 
     def parse(self, response):
         for nation in response.xpath('//main/ul/li/a/@href').getall():
@@ -42,22 +50,23 @@ class WikiArtSpider(scrapy.Spider):
             .replace("\n        </li>", '') if dimensions_raw else dimensions_raw
 
         description_raw = response.xpath('//div[@id="info-tab-description"]/p').get()
-        description = BeautifulSoup(description_raw).get_text() if description_raw else description_raw
+        description = BeautifulSoup(description_raw, features="lxml").get_text() if description_raw else description_raw
 
         wiki_description_raw = response.xpath('//div[@id="info-tab-wikipediadescription"]/p').get()
-        wiki_description = BeautifulSoup(wiki_description_raw).get_text() if wiki_description_raw else description_raw
+        wiki_description = BeautifulSoup(wiki_description_raw, features="lxml").get_text() if wiki_description_raw else wiki_description_raw
 
         tags = response.xpath("//div[@class='tags-cheaps']/div/a/text()").getall()
         tags = [tag.replace('\n', '').replace('\t', '').replace(' ', '') for tag in tags]
 
         img_url = response.xpath('//img[@itemprop="image"]/@src').get()
-        img = f"img/{hashlib.sha1(img_url.encode()).hexdigest()}.{img_url.split('.')[-1]}"
 
-        yield {
+        # img = f"img/full/{hashlib.sha1(img_url.encode()).hexdigest()}.{img_url.split('.')[-1]}"
+
+        yield ImageItem({
             "Id": self.id,
             "URL": url,
             "Title": title,
-            "Original Title": original_title,
+            "OriginalTitle": original_title,
             "Author": author,
             "Date": date,
             "Styles": styles,
@@ -67,10 +76,9 @@ class WikiArtSpider(scrapy.Spider):
             "Location": location,
             "Dimensions": dimensions,
             "Description": description,
-            "Wiki Description": wiki_description,
+            "WikiDescription": wiki_description,
             "Tags": tags,
-            "Img": img,
             "image_urls": [img_url],
-        }
+        })
 
         self.id += 1
