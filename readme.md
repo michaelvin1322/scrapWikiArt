@@ -4,8 +4,61 @@
 This repository contains scrapers developed for 
 [wikiart.org](https://www.wikiart.org/). The scraper is a part of the 
 project [Art Guide](https://github.com/aguschin/art-guide) undertaken in 
-the "Practicing DS Skills in ML Competitions" 
-class. The main objective is to extract detailed data about art pieces and artists from the website, providing valuable datasets for data science and machine learning endeavors.
+the "[Practicing DS Skills in ML 
+Competitions](https://harbour.space/data-science/courses/practicing-ds-skills-in-ml-competitions-alexander-guschin-875)" 
+class. 
+
+For our project, we required comprehensive metadata about art pieces, such 
+as genres, styles, and other descriptors which were not present in other 
+datasets I found. Thus, these scrapers are 
+designed to extract all tabular information about Art Pieces and Artists 
+present on the website.
+
+**Scraped Information for Artworks:**
+- Image
+- Title
+- Original Title
+- Author
+- Date
+- Styles
+- Series
+- Genre
+- Media
+- Location
+- Dimensions
+- Description
+- Wiki Description
+- Tags
+
+**Scraped Information about Artists:**
+- Name
+- Original Name
+- Birth Date
+- Birth Place
+- Death Date
+- Death Place
+- Active Years
+- Nationality
+- Art Movements
+- Painting School
+- Genres
+- Fields
+- Influenced On
+- Influenced By
+- Teachers
+- Pupils
+- Art Institutions
+- Friends And Coworkers
+- Wikipedia Link
+- Description
+- Wiki Description
+
+The main objective is to extract detailed data about art pieces and artists from the website, providing valuable datasets for data science and machine learning endeavors.
+
+*Scraping of 191265 images took **~14 hours** on a MacBook Pro (Retina, 
+15-inch, Mid 2015, 2,2 GHz Quad-Core Intel Core i7). Scraping of 3521 
+artists took **less than 10 
+minutes***
 
 ## Overview
 
