@@ -1,4 +1,3 @@
-scrapy runspider -o data.csv -t csv wikiart.py
 
 # WikiArt Scraper
 
@@ -38,7 +37,7 @@ To start the `ArtPiecesCrawler`, run the following:
 
 `scrapy runspider -o data/data.csv -t csv wikiart.py`
 
-This will extract details and images of art pieces and save them in your preferred output format (e.g., `.json`, `.csv`).
+This will extract details and images of art pieces and save them in your preferred output format.
 
 ### Artists Crawler
 
