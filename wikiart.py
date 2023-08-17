@@ -4,6 +4,7 @@ import hashlib
 from bs4 import BeautifulSoup
 
 from items import ImageItem
+from settins import IMAGE_STORE
 
 
 class WikiArtSpider(scrapy.Spider):
@@ -15,7 +16,7 @@ class WikiArtSpider(scrapy.Spider):
         "ITEM_PIPELINES": {
             'scrapy.pipelines.images.ImagesPipeline': 1,
         },
-        "IMAGES_STORE": "img",
+        "IMAGES_STORE": IMAGE_STORE,
     }
 
     def parse(self, response):

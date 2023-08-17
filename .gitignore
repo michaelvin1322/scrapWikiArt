@@ -1,4 +1,3 @@
-data.csv
 .idea/
 __pycache__/
-img/*
+data/*
