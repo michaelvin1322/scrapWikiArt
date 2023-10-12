@@ -1,4 +1,4 @@
 ITEM_PIPELINES = {
     'scrapy.pipelines.images.ImagesPipeline': 1,
 }
-IMAGES_STORE = "data/img"
+IMAGE_STORES = "data/img"
