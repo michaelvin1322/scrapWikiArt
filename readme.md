@@ -4,37 +4,54 @@
 This repository contains scrapers developed for 
 [wikiart.org](https://www.wikiart.org/). The scraper is a part of the 
 project [Art Guide](https://github.com/aguschin/art-guide) undertaken in 
-the "[Practicing DS Skills in ML 
-Competitions](https://harbour.space/data-science/courses/practicing-ds-skills-in-ml-competitions-alexander-guschin-875)" 
-class. 
+[Practicing DS Skills in ML 
+Competitions](https://harbour.space/data-science/courses/practicing-ds-skills-in-ml-competitions-alexander-guschin-875) and [Building ML-powered Applications](https://harbour.space/data-science/courses/building-ml-powered-application-alexander-guschin-960) 
+classes. 
 
 For our project, we required comprehensive metadata about art pieces, such 
 as genres, styles, and other descriptors which were not present in other 
 datasets I found. Thus, these scrapers are 
-designed to extract all tabular information about Art Pieces and Artists 
+designed to extract all tabular information about Art Pieces, Artists, Art Movements, Schools and Styles.   
 present on the website.
 
+## Overview
+
+The project consists of 5 crawlers:
+
+1. **wikiart spider**: This crawler extracts comprehensive details and images of various art pieces from the WikiArt website.
+2. **wikiart artists spider**: This crawler specializes in gathering information about artists.
+3. **wikiart styles spider**: This crawler is focused on collecting extensive information about different art styles.
+4. **wikiart movements spider**: This crawler delves into the world of art movements.
+5. **wikiart schools spider**: This crawler concentrates on gathering comprehensive data about art schools.
+
 **Scraped Information for Artworks:**
-- Image
+- URL
 - Title
 - Original Title
 - Author
+- Author Link
 - Date
 - Styles
 - Series
+- Series Link
 - Genre
+- Genre Link
 - Media
 - Location
 - Dimensions
 - Description
 - Wiki Description
+- Wiki Link
 - Tags
+- Image URLs
+- Images
 
 **Scraped Information about Artists:**
+- URL
 - Name
 - Original Name
 - Birth Date
-- Birth Place
+- Birthplace
 - Death Date
 - Death Place
 - Active Years
@@ -49,9 +66,24 @@ present on the website.
 - Pupils
 - Art Institutions
 - Friends And Coworkers
-- Wikipedia Link
 - Description
 - Wiki Description
+- Wikipedia Link
+
+**Scraped Information for Art Styles:**
+- Name
+- Link
+- Description
+
+**Scraped Information for Art Movements:**
+- Name
+- Link
+- Description
+
+**Scraped Information for Art Schools:**
+- Name
+- Link
+- Description
 
 The main objective is to extract detailed data about art pieces and artists from the website, providing valuable datasets for data science and machine learning endeavors.
 
@@ -59,13 +91,6 @@ The main objective is to extract detailed data about art pieces and artists from
 15-inch, Mid 2015, 2,2 GHz Quad-Core Intel Core i7). Scraping of 3521 
 artists took **less than 10 
 minutes***
-
-## Overview
-
-The project consists of two main crawlers:
-
-1. `WikiArtSpider`: Extracts details and an image of art pieces.
-2. `WikiArtArtistSpider`: Gathers detailed information about artists.
 
 ## Prerequisites
 
@@ -100,6 +125,24 @@ To initiate the `ArtistsCrawler`, execute:
 
 This will gather detailed information about artists and save them similarly.
 
+### Styles Crawler
+
+To run the `StylesCrawler`, execute:
+
+`scrapy runspider -o data/styles.csv -t csv wikiart_style.py`
+
+### Movements Crawler
+
+To run the `MovementsCrawler`, execute:
+
+`scrapy runspider -o data/movements.csv -t csv wikiart_movement.py`
+
+### Schools Crawler
+
+To run the `SchoolsCrawler`, execute:
+
+`scrapy runspider -o data/schools.csv -t csv wikiart_school.py`
+
 ## Output
 
 ### Art Pieces Crawler
@@ -114,3 +157,14 @@ Images folder may be changed in `settings.py` by changing path in
 
 By default, data will be saved in `data/artists.csv`.
 
+### Styles Crawler
+
+By default, data will be saved in `data/styles.csv`.
+
+### Movements Crawler
+
+By default, data will be saved in `data/movements.csv`.
+
+### Schools Crawler
+
+By default, data will be saved in `data/schools.csv`.
