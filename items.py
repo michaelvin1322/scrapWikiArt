@@ -46,6 +46,29 @@ class ArtistItem(scrapy.Item):
     Pupils = scrapy.Field()
     ArtInstitutions = scrapy.Field()
     FriendsAndCoworkers = scrapy.Field()
-    WikipediaLink = scrapy.Field()
     Description = scrapy.Field()
     WikiDescription = scrapy.Field()
+    WikipediaLink = scrapy.Field()
+
+
+class StyleItem(scrapy.Item):
+    Id = scrapy.Field()
+    Name = scrapy.Field()
+    Link = scrapy.Field()
+    Description = scrapy.Field()
+
+
+class MovementItem(scrapy.Item):
+    Id = scrapy.Field()
+    Name = scrapy.Field()
+    Link = scrapy.Field()
+    Description = scrapy.Field()
+
+
+class SchoolItem(scrapy.Item):
+    Id = scrapy.Field()
+    Name = scrapy.Field()
+    Link = scrapy.Field()
+    Description = scrapy.Field()
+
+
