@@ -1,7 +1,7 @@
 import scrapy
 import json
 import pandas as pd
-from items import ImageItem
+from ScrapWikiArt.items import ImageItem
 
 
 class MySpider(scrapy.Spider):

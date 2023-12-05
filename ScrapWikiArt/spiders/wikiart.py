@@ -1,9 +1,8 @@
 import scrapy
-import hashlib
 
 from bs4 import BeautifulSoup
 
-from items import ImageItem
+from ScrapWikiArt.items import ImageItem
 # from settings import IMAGES_STORE
 
 

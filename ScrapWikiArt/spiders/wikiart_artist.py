@@ -2,7 +2,7 @@ import scrapy
 
 from bs4 import BeautifulSoup
 
-from items import ArtistItem
+from ScrapWikiArt.items import ArtistItem
 
 
 class WikiArtArtistSpider(scrapy.Spider):

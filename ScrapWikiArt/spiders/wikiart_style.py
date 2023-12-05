@@ -2,13 +2,13 @@ import scrapy
 
 from bs4 import BeautifulSoup
 
-from items import MovementItem
+from ScrapWikiArt.items import StyleItem
 
 
 class WikiArtArtistSpider(scrapy.Spider):
-    name = "wikiart_movement"
+    name = "wikiart_style"
     allowed_domains = ["wikiart.org"]
-    start_urls = ["https://www.wikiart.org/en/artists-by-art-movement"]
+    start_urls = ["https://www.wikiart.org/en/paintings-by-style"]
     id = 0
 
     def parse(self, response):
@@ -26,7 +26,7 @@ class WikiArtArtistSpider(scrapy.Spider):
         description_raw = response.xpath('//p[@class="dictionary-description-text"]').get()
         description = BeautifulSoup(description_raw, features="lxml").get_text() if description_raw else description_raw
 
-        yield MovementItem({
+        yield StyleItem({
             "Id": self.id,
             "Name": name,
             "Link": link,
