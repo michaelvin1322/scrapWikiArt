@@ -113,7 +113,7 @@ minutes***
 
 To start the `ArtPiecesCrawler`, run the following:
 
-`scrapy runspider -o data/data.csv -t csv wikiart.py`
+`scrapy runspider -o data/data.csv -t csv ScrapWikiArt/wikiart.py`
 
 This will extract details and images of art pieces and save them in your preferred output format.
 
@@ -121,7 +121,7 @@ This will extract details and images of art pieces and save them in your preferr
 
 To initiate the `ArtistsCrawler`, execute:
 
-`scrapy runspider -o data/artists.csv -t csv wikiart_artist.py`
+`scrapy runspider -o data/artists.csv -t csv ScrapWikiArt/wikiart_artist.py`
 
 This will gather detailed information about artists and save them similarly.
 
@@ -129,19 +129,25 @@ This will gather detailed information about artists and save them similarly.
 
 To run the `StylesCrawler`, execute:
 
-`scrapy runspider -o data/styles.csv -t csv wikiart_style.py`
+`scrapy runspider -o data/styles.csv -t csv ScrapWikiArt/wikiart_style.py`
 
 ### Movements Crawler
 
 To run the `MovementsCrawler`, execute:
 
-`scrapy runspider -o data/movements.csv -t csv wikiart_movement.py`
+`scrapy runspider -o data/movements.csv -t csv ScrapWikiArt/wikiart_movement.py`
 
 ### Schools Crawler
 
 To run the `SchoolsCrawler`, execute:
 
-`scrapy runspider -o data/schools.csv -t csv wikiart_school.py`
+`scrapy runspider -o data/schools.csv -t csv ScrapWikiArt/spiders/wikiart_school.py`
+
+### DuckDuckGo Crawler
+
+To run the 
+
+`scrapy runspider -o data/data_update_v1.csv -t csv -a input_file=data/data.csv ScrapWikiArt/spiders/duck_duck_go.py`
 
 ## Output
 
