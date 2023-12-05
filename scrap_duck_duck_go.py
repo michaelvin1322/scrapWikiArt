@@ -77,6 +77,8 @@ def main(input_file, output_file):
     url_counter = {}
     results = []
     # .sample(100, random_state=42)
+    counter = 0
+
     for index, (title, author, date) in df_empty[['Title', 'Author', 'Date']].iterrows():
         response = make_request(f"{title}")
         abstract, url = None, None
@@ -88,9 +90,11 @@ def main(input_file, output_file):
         if abstract and url not in url_counter:
             url_counter[url] = 1
 
+        counter += 1
         if abstract:
             results.append((index, title, author, date, url, abstract))
             print(f"{title}, {author}, {date}\nlink: {url}\nabstract: {abstract}")
+            print(f"Scraped: {counter} / {df_empty.shape[0]}")
             print('-' * 80)
 
     for index, title, author, date, url, abstract in results:
