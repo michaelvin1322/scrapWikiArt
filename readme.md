@@ -24,6 +24,16 @@ The project consists of 5 crawlers:
 4. **wikiart movements spider**: This crawler delves into the world of art movements.
 5. **wikiart schools spider**: This crawler concentrates on gathering comprehensive data about art schools.
 
+In addition to the primary crawlers, the project includes DuckDuckGo spiders for updating descriptions in specific categories:
+
+- **duck_duck_go.py**: Updates descriptions for art pieces.
+- **duck_duck_go_artist.py**: Updates information about artists.
+- **duck_duck_go_style.py**: Updates information about art styles.
+- **duck_duck_go_movement.py**: Updates information about art movements.
+- **duck_duck_go_school.py**: Updates information about art schools.
+
+These DuckDuckGo spiders enhance and maintain the data integrity by fetching updated information for paintings, artists, styles, movements, and schools based on the existing datasets.
+
 **Scraped Information for Artworks:**
 - URL
 - Title
@@ -107,47 +117,18 @@ minutes***
 `cd wikiart-scraper`\
 `pip install -r requirements.txt`
 
-## Usage
-
-### Art Pieces Crawler
-
-To start the `ArtPiecesCrawler`, run the following:
-
-`scrapy runspider -o data/data.csv -t csv ScrapWikiArt/wikiart.py`
-
-This will extract details and images of art pieces and save them in your preferred output format.
-
-### Artists Crawler
-
-To initiate the `ArtistsCrawler`, execute:
-
-`scrapy runspider -o data/artists.csv -t csv ScrapWikiArt/wikiart_artist.py`
-
-This will gather detailed information about artists and save them similarly.
-
-### Styles Crawler
-
-To run the `StylesCrawler`, execute:
-
-`scrapy runspider -o data/styles.csv -t csv ScrapWikiArt/wikiart_style.py`
-
-### Movements Crawler
-
-To run the `MovementsCrawler`, execute:
-
-`scrapy runspider -o data/movements.csv -t csv ScrapWikiArt/wikiart_movement.py`
-
-### Schools Crawler
-
-To run the `SchoolsCrawler`, execute:
-
-`scrapy runspider -o data/schools.csv -t csv ScrapWikiArt/spiders/wikiart_school.py`
-
-### DuckDuckGo Crawler
-
-To run the 
-
-`scrapy runspider -o data/data_update_v1.csv -t csv -a input_file=data/data.csv ScrapWikiArt/spiders/duck_duck_go.py`
+| Crawler | Command                                                                                                                               |
+|---------|---------------------------------------------------------------------------------------------------------------------------------------|
+| Art Pieces Crawler | `scrapy runspider -o data/data.csv -t csv ScrapWikiArt/wikiart.py`                                                                    |
+| Artists Crawler | `scrapy runspider -o data/artists.csv -t csv ScrapWikiArt/wikiart_artist.py`                                                          |
+| Styles Crawler | `scrapy runspider -o data/styles.csv -t csv ScrapWikiArt/wikiart_style.py`                                                            |
+| Movements Crawler | `scrapy runspider -o data/movements.csv -t csv ScrapWikiArt/wikiart_movement.py`                                                      |
+| Schools Crawler | `scrapy runspider -o data/schools.csv -t csv ScrapWikiArt/spiders/wikiart_school.py`                                                  |
+| DuckDuckGo Crawler | `scrapy runspider -o data/data_update.csv -t csv -a input_file=data/data.csv ScrapWikiArt/spiders/duck_duck_go.py`                    |
+| DuckDuckGo Artist Spider | `scrapy runspider -o data/artist_update.csv -t csv -a input_file=data/artists.csv ScrapWikiArt/spiders/duck_duck_go_artist.py`        |
+| DuckDuckGo Styles Spider | `scrapy runspider -o data/styles_update.csv -t csv -a input_file=data/styles.csv ScrapWikiArt/spiders/duck_duck_go_style.py`          |
+| DuckDuckGo Movements Spider | `scrapy runspider -o data/movements_update.csv -t csv -a input_file=data/movements.csv ScrapWikiArt/spiders/duck_duck_go_movement.py` |
+| DuckDuckGo Schools Spider | `scrapy runspider -o data/schools_update.csv -t csv -a input_file=data/schools.csv ScrapWikiArt/spiders/duck_duck_go_school.py`              |
 
 ## Output
 

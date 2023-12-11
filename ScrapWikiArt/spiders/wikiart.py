@@ -3,7 +3,6 @@ import scrapy
 from bs4 import BeautifulSoup
 
 from ScrapWikiArt.items import ImageItem
-# from settings import IMAGES_STORE
 
 
 class WikiArtSpider(scrapy.Spider):
@@ -16,7 +15,6 @@ class WikiArtSpider(scrapy.Spider):
         "ITEM_PIPELINES": {
             'scrapy.pipelines.images.ImagesPipeline': 1,
         },
-        # "IMAGES_STORE": IMAGES_STORE,
         "IMAGES_STORE": "data/img",
     }
 

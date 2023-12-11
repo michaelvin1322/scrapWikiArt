@@ -82,7 +82,7 @@ class WikiArtArtistSpider(scrapy.Spider):
             "Pupils": pupils,
             "ArtInstitutions": art_institutions,
             "FriendsAndCoworkers": friends_and_coworkers,
-            "WikipediaLink": wikipedia_link,
+            "WikiLink": wikipedia_link,
             "Description": description,
             "WikiDescription": wiki_description,
         })

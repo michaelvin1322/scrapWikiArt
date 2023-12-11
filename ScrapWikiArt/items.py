@@ -48,7 +48,7 @@ class ArtistItem(scrapy.Item):
     FriendsAndCoworkers = scrapy.Field()
     Description = scrapy.Field()
     WikiDescription = scrapy.Field()
-    WikipediaLink = scrapy.Field()
+    WikiLink = scrapy.Field()
 
 
 class StyleItem(scrapy.Item):
@@ -58,11 +58,21 @@ class StyleItem(scrapy.Item):
     Description = scrapy.Field()
 
 
+class UpdatedStyleItem(StyleItem):
+    WikiDescription = scrapy.Field()
+    WikiLink = scrapy.Field()
+
+
 class MovementItem(scrapy.Item):
     Id = scrapy.Field()
     Name = scrapy.Field()
     Link = scrapy.Field()
     Description = scrapy.Field()
+
+
+class UpdatedMovementItem(MovementItem):
+    WikiDescription = scrapy.Field()
+    WikiLink = scrapy.Field()
 
 
 class SchoolItem(scrapy.Item):
@@ -72,3 +82,6 @@ class SchoolItem(scrapy.Item):
     Description = scrapy.Field()
 
 
+class UpdatedSchoolItem(SchoolItem):
+    WikiDescription = scrapy.Field()
+    WikiLink = scrapy.Field()
