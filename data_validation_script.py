@@ -63,6 +63,7 @@ if __name__ == '__main__':
             prompt = generate_prompt(row.to_dict())
             response = model(prompt)['choices'][0]['text']
             processed_response = process_model_response(response)
+            df.at[index, 'ValidatedRaw'] = response
             df.at[index, 'Validated'] = processed_response
 
             processed_count += 1
