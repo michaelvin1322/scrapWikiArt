@@ -68,6 +68,4 @@ if __name__ == '__main__':
             processed_count += 1
             if processed_count % 100 == 0:
                 print(f"Processed {processed_count} records")
-
-        df = df[df['Validated']].drop(columns=['Validated'])
         df.to_csv('./data/' + output_file)
