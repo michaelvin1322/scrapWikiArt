@@ -104,7 +104,7 @@ minutes***
 
 ## Prerequisites
 
-- Python 3.x
+- Python 3.x (3.10 is verified)
 - Scrapy
 
 ## Installation
@@ -114,15 +114,15 @@ minutes***
 
 2. Navigate to the repository and install the required packages:
 
-`cd wikiart-scraper`\
+`cd ScrapWikiArt`\
 `pip install -r requirements.txt`
 
 | Crawler | Command                                                                                                                               |
 |---------|---------------------------------------------------------------------------------------------------------------------------------------|
-| Art Pieces Crawler | `scrapy runspider -o data/data.csv -t csv ScrapWikiArt/wikiart.py`                                                                    |
-| Artists Crawler | `scrapy runspider -o data/artists.csv -t csv ScrapWikiArt/wikiart_artist.py`                                                          |
-| Styles Crawler | `scrapy runspider -o data/styles.csv -t csv ScrapWikiArt/wikiart_style.py`                                                            |
-| Movements Crawler | `scrapy runspider -o data/movements.csv -t csv ScrapWikiArt/wikiart_movement.py`                                                      |
+| Art Pieces Crawler | `scrapy runspider -o data/data.csv -t csv ScrapWikiArt/spiders/wikiart.py`                                                                    |
+| Artists Crawler | `scrapy runspider -o data/artists.csv -t csv ScrapWikiArt/spiders/wikiart_artist.py`                                                          |
+| Styles Crawler | `scrapy runspider -o data/styles.csv -t csv ScrapWikiArt/spiders/wikiart_style.py`                                                            |
+| Movements Crawler | `scrapy runspider -o data/movements.csv -t csv ScrapWikiArt/spiders/wikiart_movement.py`                                                      |
 | Schools Crawler | `scrapy runspider -o data/schools.csv -t csv ScrapWikiArt/spiders/wikiart_school.py`                                                  |
 | DuckDuckGo Crawler | `scrapy runspider -o data/data_update.csv -t csv -a input_file=data/data.csv ScrapWikiArt/spiders/duck_duck_go.py`                    |
 | DuckDuckGo Artist Spider | `scrapy runspider -o data/artist_update.csv -t csv -a input_file=data/artists.csv ScrapWikiArt/spiders/duck_duck_go_artist.py`        |
